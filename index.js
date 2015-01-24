@@ -9,11 +9,18 @@ var express = require('express'),
 app.use(bodyParser());
 app.use(methodOverride());
 app.set('port', (process.env.PORT || 5000));
+app.set('db', process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/iconit');
+
+// Connect to our database
+mongoose.connect(db, function(err, res) {
+  if (err) {
+    console.log('Error connecting to database: ', app.get('db'), err); 
+  } else {
+    console.log('Successfully connected to database: ', app.get('db'));
+  }
+});
 
 /*
-// Connect to our database
-mongoose.connect('mongodb://localhost/vintage');
-
 // Movies API
 var Movies = restful.model('movies', mongoose.Schema({
   info: String,
