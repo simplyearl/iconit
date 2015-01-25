@@ -35,6 +35,7 @@ module.exports = function(grunt) {
         src: [
           '<%= paths.bower %>jquery/dist/jquery.min.js',
           '<%= paths.bower %>angular/angular.min.js',
+          '<%= paths.bower %>angular-animate/angular-animate.min.js',
           '<%= paths.bower %>angular-ui-router/release/angular-ui-router.min.js',
           '<%= paths.bower %>angular-safeapply/safe-apply.js',
           '<%= paths.bower %>bootstrap-sass/assets/javascripts/bootstrap.min.js',

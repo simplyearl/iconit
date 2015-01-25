@@ -18,23 +18,19 @@ app.set('db', process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://
 
 // Connect to our database
 mongoose.connect(app.get('db'), function(err, res) {
-  console.log('Connecting to database %s was %ssuccessful.', app.get('db'), err ? 'un' : '');
+  console.log('%s connecting to %s', (err ? 'Unsuccessfully' : 'Successfully'), app.get('db'));
 });
 
 // Create owner schema
 var ownerSchema = restful.model('Owner', schema({
   name: String,
-  url: String,
-  icons: [{
-    type: schema.Types.ObjectId,
-    ref: 'Icon'
-  }]
+  url: String
 }));
 
 // Create icon schema
 var iconSchema = restful.model('Icon', schema({
   owner: {
-    type: Number,
+    type: schema.Types.ObjectId,
     ref: 'Owner'
   },
   name: String,

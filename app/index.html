@@ -24,8 +24,8 @@
           <hr />
           
           <div ng-controller="BrowseController">
-            <p class="text-muted">{{owners || 'null'}}</p>
-            <div class="btn-group">
+            <i class="fa fa-spin fa-spinner" ng-hide="owners"></i>
+            <div class="btn-group" ng-show="owners" ng-animate="animate">
               <label class="btn btn-primary" ng-model="owner.selected" ng-repeat="owner in owners | orderBy:name"  btn-checkbox>{{ owner.name }}</label>
             </div>
           </div>

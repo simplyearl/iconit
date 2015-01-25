@@ -3,6 +3,7 @@
 var iconit = angular.module('iconit', [
   'ui.router',
   'ui.bootstrap',
+  'ngAnimate',
   'SafeApply'
 ]);
 
