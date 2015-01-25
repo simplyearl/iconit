@@ -1,14 +1,24 @@
 # iconit
 Database of popular icons and tags.
 
-## Requirements
+## Development
 
+### Requirements
+
+- Node
 - NPM
 - Ruby
 - Bundler
 
-## Setup
+### Setup
 
 - [sudo] npm install
-- [sudo] bundle install
+- bundle install
+- node_modules/bower/bin/bower install
+- foreman start -f Procfile.dev
 
+## Production
+
+- foreman start
+
+This automatically happens when deploying to heroku.

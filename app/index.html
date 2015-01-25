@@ -14,8 +14,22 @@
         <div class="col-sm-12">
           
           <h1 class="page-header">ICONIT <small>Searching icon frameworks</small></h1>
+
+          <div ng-controller="SearchController">
+            <p class="text-muted">Selected: {{asyncSelected | json}}</p>
+            <input type="text" ng-model="asyncSelected" placeholder="Enter Search Term" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control input-lg">
+            <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
+          </div>
           
-          <i class="fa fa-spin fa-spinner fa-3x"></i>
+          <hr />
+          
+          <div ng-controller="BrowseController">
+            <p class="text-muted">{{owners || 'null'}}</p>
+            <div class="btn-group">
+              <label class="btn btn-primary" ng-model="owner.selected" ng-repeat="owner in owners | orderBy:name"  btn-checkbox>{{ owner.name }}</label>
+            </div>
+          </div>
+          
           
         </div>  <!-- .col-sm-12 -->       
       </div>  <!-- .row -->
