@@ -2,13 +2,17 @@ var express = require('express'),
     restful = require('node-restful'),
     bodyParser = require('body-parser'),
     methodOverride = require('method-override'),
+    //sass = require('node-sass-middleware'),
     mongoose = restful.mongoose,
     app = express();
 
 // Needed to expose API
 app.use(bodyParser());
 app.use(methodOverride());
-app.set('port', (process.env.PORT || 5000));
+
+// Configuration options
+app.set('public', '/app');
+app.set('port', process.env.PORT || 5000);
 app.set('db', process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/iconit');
 
 // Connect to our database
@@ -35,7 +39,22 @@ Movies.register(app, '/api/movies');
 */
 
 // Expose app
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + app.get('public')));
+
+/*
+ // adding the sass middleware
+app.use(
+  sass({
+    src: __dirname + app.get('public') + '/assets/sass', 
+    dest: __dirname + app.get('public') + '/assets/css',
+    prefix: '/assets/css',
+    debug: true
+  })
+);   
+
+// The static middleware must come after the sass middleware
+app.use(express.static( __dirname + app.get('public')));
+*/
 
 var server = app.listen(app.get('port'), function() {
     console.log('Listening on port %d', server.address().port);

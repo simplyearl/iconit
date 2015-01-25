@@ -1,1 +1,11 @@
-node_modules
+app-src/vendor/
+Gemfile.lock
+*.gem
+pkg/
+*.swp
+*~
+.bundle/
+.DS_Store
+bbin/
+.ruby-version
+.sass-cache
