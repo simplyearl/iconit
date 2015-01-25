@@ -1,0 +1,8 @@
+$fa-font-path: '../fonts';
+$icon-font-path: $fa-font-path;
+
+@import "fontawesome/scss/font-awesome";
+@import "bootstrap-sass/assets/stylesheets/bootstrap";
+
+// http://angular-ui.github.io/bootstrap/#/getting_started
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
