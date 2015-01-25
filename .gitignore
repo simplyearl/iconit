@@ -1,4 +1,5 @@
 app-src/vendor/
+node_modules
 Gemfile.lock
 *.gem
 pkg/
