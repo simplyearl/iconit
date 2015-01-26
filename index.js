@@ -18,7 +18,7 @@ app.set('db', process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://
 
 // Connect to our database
 mongoose.connect(app.get('db'), function(err, res) {
-  console.log('%s connecting to %s', (err ? 'Unsuccessfully' : 'Successfully'), app.get('db'));
+  console.log('%s connected to %s', (err ? 'Unsuccessfully' : 'Successfully'), app.get('db'));
 });
 
 // Create owner schema
@@ -35,7 +35,11 @@ var iconSchema = restful.model('Icon', schema({
   },
   name: String,
   class: String,
-  unicode: String
+  unicode: String,
+  tags: [{
+    name: String,
+    status: { type: Number, default: 0 }
+  }]
 }));
 
 // API methods

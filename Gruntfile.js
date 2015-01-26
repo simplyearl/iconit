@@ -20,6 +20,9 @@ module.exports = function(grunt) {
           cwd: '<%= paths.bower %>bootstrap-sass/assets/fonts/bootstrap/',
           src: ['*.*'],
           dest: '<%= paths.assets %>fonts/'
+        },{
+          src: '<%= paths.bower %>/angular-xeditable/dist/css/xeditable.css',
+          dest: '<%= paths.assets %>/css/xeditable.css' 
         }]
       }
     },
@@ -38,6 +41,7 @@ module.exports = function(grunt) {
           '<%= paths.bower %>angular-animate/angular-animate.min.js',
           '<%= paths.bower %>angular-ui-router/release/angular-ui-router.min.js',
           '<%= paths.bower %>angular-safeapply/safe-apply.js',
+          '<%= paths.bower %>angular-xeditable/dist/js/xeditable.min.js',
           '<%= paths.bower %>bootstrap-sass/assets/javascripts/bootstrap.min.js',
           '<%= paths.bower %>angular-bootstrap/ui-bootstrap.min.js',
           '<%= paths.bower %>angular-bootstrap/ui-bootstrap-tpls.min.js',

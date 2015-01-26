@@ -17,19 +17,34 @@
 
           <div ng-controller="SearchController">
             <p class="text-muted">Selected: {{asyncSelected | json}}</p>
-            <input type="text" ng-model="asyncSelected" placeholder="Enter Search Term" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control input-lg">
+            <input type="text" ng-model="asyncSelected" placeholder="Tell me thy bidding my master..." typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control input-lg">
             <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i>
           </div>
           
           <hr />
           
           <div ng-controller="BrowseController">
-            <i class="fa fa-spin fa-spinner" ng-hide="owners"></i>
-            <div class="btn-group" ng-show="owners" ng-animate="animate">
+            
+            <p ng-hide="owners">
+              <i class="fa fa-spin fa-spinner"></i>
+            </p>
+            
+            <div class="btn-group" ng-show="owners">
               <label class="btn btn-primary" ng-model="owner.selected" ng-repeat="owner in owners | orderBy:name"  btn-checkbox>{{ owner.name }}</label>
             </div>
+            
+            <button type="button" class="btn btn-success"><i class="fa fa-plus-circle"></i></button>
+            
+            <div ng-repeat="owner in owners | orderBy:name" ng-show="owner.selected">
+              <h2><a ng-href="{{ owner.url }}" target="_blank">{{ owner.name }}</a></h2>
+              <ul class="list-unstyled">
+                <li ng-repeat="icon in icons | filter:owner._id">
+                  {{ icon.name }}: <i ng-class="owner.prefix + icon.class"></i>
+                </li>
+              </ul>
+            </div>
+            
           </div>
-          
           
         </div>  <!-- .col-sm-12 -->       
       </div>  <!-- .row -->

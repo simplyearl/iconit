@@ -5,6 +5,7 @@
  */
 /* FONT PATH
  * -------------------------- */
+@import url(xeditable.css);
 @font-face {
   font-family: 'FontAwesome';
   src: url("../fonts//fontawesome-webfont.eot?v=4.3.0");
@@ -7411,5 +7412,22 @@ button.close {
     display: none !important; } }
 .nav, .pagination, .carousel, .panel-title a {
   cursor: pointer; }
+
+.header-with-button:before, .header-with-button:after {
+  content: " ";
+  display: table; }
+.header-with-button:after {
+  clear: both; }
+
+.header-with-button h2 {
+  float: left; }
+
+.header-with-button a,
+.header-with-button button {
+  float: right;
+  margin-top: 24px; }
+
+.no-white-space {
+  white-space: nowrap; }
 
 /*# sourceMappingURL=app.css.map */

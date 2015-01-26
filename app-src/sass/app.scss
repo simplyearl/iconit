@@ -1,8 +1,30 @@
 $fa-font-path: '../fonts/';
 $icon-font-path: $fa-font-path;
 
+// Import SASS
 @import "fontawesome/scss/font-awesome";
 @import "bootstrap-sass/assets/stylesheets/bootstrap";
 
+// Import CSS (Grunt moves these)
+@import "xeditable.css";
+
 // http://angular-ui.github.io/bootstrap/#/getting_started
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.header-with-button {
+  @include clearfix;
+}
+
+.header-with-button h2 {
+  float: left;
+}
+
+.header-with-button a,
+.header-with-button button {
+  float: right;
+  margin-top: 24px;
+}
+
+.no-white-space {
+  white-space: nowrap;
+}
