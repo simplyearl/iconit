@@ -28,7 +28,7 @@ iconit.controller('SearchController', ['$scope', '$http', function($scope, $http
   
   $scope.selected = undefined;
   $scope.getLocation = function(val) {
-    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
+    return $http.get('//maps.googleapis.com/maps/api/geocode/json', {
       params: {
         address: val,
         sensor: false
