@@ -24,3 +24,4 @@ Database of popular icons and tags.
 This automatically happens when deploying to heroku.
 #1
 #2
+#3
